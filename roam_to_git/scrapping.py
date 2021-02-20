@@ -186,8 +186,8 @@ async def signin(document, config: Config, sleep_duration=1.):
     """Sign-in into Roam"""
     logger.debug("Opening signin page")
     await document.goto('https://roamresearch.com/#/signin')
-    # increased to 5 seconds to handle sporadic second login screen refresh
-    await asyncio.sleep(6.)
+    # increased to handle sporadic second login screen refresh
+    await asyncio.sleep(10.)
 
     logger.debug("Fill email '{}'", config.user)
     email_elem = await document.querySelector("input[name='email']")
